@@ -29,15 +29,6 @@ Pod::Spec.new do |s|
     go.public_header_files = 'Sources/WireGuardKitGo/**/*.h'
   end
 
-  s.subspec 'Shared' do |shared|
-    shared.source_files = 'Sources/Shared/**/*.{swift,h,m}'
-    shared.public_header_files = 'Sources/Shared/**/*.h'
-  end
-
-  s.subspec 'WireGuardApp' do |app|
-    app.source_files = 'Sources/WireGuardApp/**/*.{swift,h,m}'
-  end
-
   s.subspec 'WireGuardNetworkExtension' do |ne|
     ne.source_files = 'Sources/WireGuardNetworkExtension/**/*.{swift,h,m}'
   end
