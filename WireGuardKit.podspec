@@ -13,29 +13,24 @@ Pod::Spec.new do |s|
 
   s.source = { :git => 'https://github.com/WalterGoldenOwl/wireguard-apple.git', :branch => 'master' }
 
-  s.preserve_paths = [
-    'sync-translations.sh',
-    'WireGuard.xcodeproj',
-    '.swiftlint.yml',
-    'Package.swift',
-    'Sources/**/*'
-  ]
+  # Bao gồm các tệp không phải nguồn và thư mục Sources để giữ cấu trúc
+  s.preserve_paths = 'Sources/**/*', 'sync-translations.sh', 'WireGuard.xcodeproj', '.swiftlint.yml', 'README.md', 'MOBILECONFIG.md', 'COPYING', '.gitignore', 'Package.swift'
 
   s.subspec 'WireGuardKit' do |kit|
     kit.source_files = 'Sources/WireGuardKit/**/*'
     kit.public_header_files = 'Sources/WireGuardKit/**/*.h'
-    kit.preserve_paths   = 'Sources/WireGuardKit/**/*'
+    kit.preserve_paths = 'Sources/WireGuardKit/**/*'
   end
 
   s.subspec 'WireGuardKitC' do |kitc|
     kitc.source_files = 'Sources/WireGuardKitC/**/*'
     kitc.public_header_files = 'Sources/WireGuardKitC/**/*.h'
-    kitc.preserve_paths   = 'Sources/WireGuardKitC/**/*'
+    kitc.preserve_paths = 'Sources/WireGuardKitC/**/*'
   end
 
   s.subspec 'WireGuardKitGo' do |go|
     go.source_files = 'Sources/WireGuardKitGo/**/*'
     go.public_header_files = 'Sources/WireGuardKitGo/**/*.h'
-    go.preserve_paths   = 'Sources/WireGuardKitGo/**/*'
+    go.preserve_paths = 'Sources/WireGuardKitGo/**/*'
   end
 end
