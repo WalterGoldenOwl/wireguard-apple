@@ -31,10 +31,4 @@ Pod::Spec.new do |s|
     go.public_header_files = 'Sources/WireGuardKitGo/**/*.h'
     go.preserve_paths   = 'Sources/WireGuardKitGo/**/*'
   end
-
-  s.subspec 'WireGuardNetworkExtension' do |ne|
-    ne.source_files = 'Sources/WireGuardNetworkExtension/**/*'
-    ne.public_header_files = 'Sources/WireGuardNetworkExtension/**/*.h'
-    ne.preserve_paths   = 'Sources/WireGuardNetworkExtension/**/*'
-  end
 end
