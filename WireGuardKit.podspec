@@ -14,17 +14,17 @@ Pod::Spec.new do |s|
   s.source = { :git => 'https://github.com/WalterGoldenOwl/wireguard-apple.git', :branch => 'master' }
 
   # Subspec cho từng module con
-  s.subspec 'Kit' do |kit|
+  s.subspec 'WireGuardKit' do |kit|
     kit.source_files = 'Sources/WireGuardKit/**/*.{swift,h,m,c}'
     kit.public_header_files = 'Sources/WireGuardKit/**/*.h'
   end
 
-  s.subspec 'KitC' do |kitc|
+  s.subspec 'WireGuardKitC' do |kitc|
     kitc.source_files = 'Sources/WireGuardKitC/**/*.{c,h}'
     kitc.public_header_files = 'Sources/WireGuardKitC/**/*.h'
   end
 
-  s.subspec 'KitGo' do |go|
+  s.subspec 'WireGuardKitGo' do |go|
     go.source_files = 'Sources/WireGuardKitGo/**/*.{swift,h,m}'
     go.public_header_files = 'Sources/WireGuardKitGo/**/*.h'
   end
@@ -34,11 +34,11 @@ Pod::Spec.new do |s|
     shared.public_header_files = 'Sources/Shared/**/*.h'
   end
 
-  s.subspec 'App' do |app|
+  s.subspec 'WireGuardApp' do |app|
     app.source_files = 'Sources/WireGuardApp/**/*.{swift,h,m}'
   end
 
-  s.subspec 'NetworkExtension' do |ne|
+  s.subspec 'WireGuardNetworkExtension' do |ne|
     ne.source_files = 'Sources/WireGuardNetworkExtension/**/*.{swift,h,m}'
   end
 end
