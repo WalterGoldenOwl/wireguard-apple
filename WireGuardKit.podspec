@@ -1,31 +1,32 @@
 Pod::Spec.new do |s|
-  s.name             = 'WireGuardKit'
-  s.version          = '1.0.0'
-  s.summary          = 'Unified WireGuard Apple Kit'
-  s.description      = 'WireGuard Apple implementation as a single pod.'
-  s.homepage         = 'https://www.wireguard.com'
-  s.license          = { :type => 'MIT', :file => 'COPYING' }
-  s.author           = { 'WireGuard' => 'team@wireguard.com' }
+  s.name         = 'WireGuardKit'
+  s.version      = '1.0.0'
+  s.summary      = 'Unified WireGuard Apple Kit'
+  s.description  = 'WireGuard Apple implementation split into subspecs.'
+  s.homepage     = 'https://www.wireguard.com'
+  s.license      = { :type => 'MIT', :file => 'COPYING' }
+  s.author       = { 'WireGuard' => 'team@wireguard.com' }
 
-  s.platform         = :ios, '15.0'
-  s.swift_version    = '5.9'
-  s.requires_arc     = true
+  s.platform     = :ios, '15.0'
+  s.swift_version = '5.0'
+  s.requires_arc = true
 
-  s.source           = { :git => 'https://github.com/WalterGoldenOwl/wireguard-apple.git', :branch => 'master' }
+  s.source = { :git => 'https://github.com/WalterGoldenOwl/wireguard-apple.git', :branch => 'master' }
 
-  s.source_files     = 'Sources/**/*.{swift,h,m,c,cpp}'
-  s.public_header_files = 'Sources/**/*.h'
+  s.source_files = ['Sources/WireGuardKit/**/*.{swift,h,m,c,cpp}']
+  s.public_header_files = 'Sources/WireGuardKit/*.{h}'
 
-  s.resources        = [
-    'Sources/**/*.lproj',
-    'Sources/**/*.plist',
-    'Sources/**/*.strings',
-    'Sources/**/*.entitlements'
-  ]
+  s.subspec 'WireGuardKitC' do |kitc|
+    kitc.source_files = 'Sources/WireGuardKitC/**/*'
+    kitc.public_header_files = 'Sources/WireGuardKitC/**/*.h'
+    kitc.preserve_paths   = 'Sources/WireGuardKitC/**/*'
+  end
 
-  s.preserve_paths = [
-    'Sources/**/*.{go,modulemap,diff,sh,mod,sum,Makefile}'
-  ]
+  s.subspec 'WireGuardKitGo' do |go|
+    go.source_files = 'Sources/WireGuardKitGo/**/*'
+    go.public_header_files = 'Sources/WireGuardKitGo/**/*.h'
+    go.preserve_paths   = 'Sources/WireGuardKitGo/**/*'
+  end
 
-  s.module_map = 'Sources/WireGuardKitC/module.modulemap'
+  s.preserve_paths = 'Sources/WireGuardKit/**/*'
 end
