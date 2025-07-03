@@ -15,21 +15,26 @@ Pod::Spec.new do |s|
 
   # Subspec cho từng module con
   s.subspec 'WireGuardKit' do |kit|
-    kit.source_files = 'Sources/WireGuardKit/**/*.{swift,h,m,c}'
+    kit.source_files = 'Sources/WireGuardKit/**/*'
     kit.public_header_files = 'Sources/WireGuardKit/**/*.h'
+    kit.preserve_paths   = 'Sources/WireGuardKit/**/*'
   end
 
   s.subspec 'WireGuardKitC' do |kitc|
-    kitc.source_files = 'Sources/WireGuardKitC/**/*.{c,h}'
+    kitc.source_files = 'Sources/WireGuardKitC/**/*'
     kitc.public_header_files = 'Sources/WireGuardKitC/**/*.h'
+    kitc.preserve_paths   = 'Sources/WireGuardKitC/**/*'
   end
 
   s.subspec 'WireGuardKitGo' do |go|
-    go.source_files = 'Sources/WireGuardKitGo/**/*.{swift,h,m}'
+    go.source_files = 'Sources/WireGuardKitGo/**/*'
     go.public_header_files = 'Sources/WireGuardKitGo/**/*.h'
+    go.preserve_paths   = 'Sources/WireGuardKitGo/**/*'
   end
 
   s.subspec 'WireGuardNetworkExtension' do |ne|
-    ne.source_files = 'Sources/WireGuardNetworkExtension/**/*.{swift,h,m}'
+    ne.source_files = 'Sources/WireGuardNetworkExtension/**/*'
+    ne.public_header_files = 'Sources/WireGuardNetworkExtension/**/*.h'
+    ne.preserve_paths   = 'Sources/WireGuardNetworkExtension/**/*'
   end
 end
