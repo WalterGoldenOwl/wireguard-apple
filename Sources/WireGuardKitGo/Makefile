@@ -20,6 +20,8 @@ GOARCH_arm64 := arm64
 GOARCH_x86_64 := amd64
 GOOS_macosx := darwin
 GOOS_iphoneos := ios
+GOOS_iphonesimulator := ios
+GOOS_maccatalyst := ios
 
 build: $(DESTDIR)/libwg-go.a
 version-header: $(DESTDIR)/wireguard-go-version.h

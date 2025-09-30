@@ -7,6 +7,9 @@ import NetworkExtension
 #if SWIFT_PACKAGE
 import WireGuardKitGo
 import WireGuardKitC
+#elseif canImport(WireGuardKitGo) && canImport(WireGuardKitC)
+import WireGuardKitGo
+import WireGuardKitC
 #endif
 
 public enum WireGuardAdapterError: Error {
