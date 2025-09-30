@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://www.wireguard.com/'
   s.license          = { :type => 'MIT', :file => 'COPYING' }
   s.author           = { 'WireGuard LLC' => 'team@wireguard.com' }
-  s.source           = { :git => 'https://git.zx2c4.com/wireguard-apple.git', :branch => 'master' }
+  s.source           = { :git => 'https://github.com/WalterGoldenOwl/wireguard-apple.git', :branch => 'master' }
   s.swift_version    = '5.6'
 
   s.platform         = :ios, '15.0'
@@ -24,15 +24,16 @@ Pod::Spec.new do |s|
                              'Sources/WireGuardKitC/key.h',
                              'Sources/WireGuardKitC/x25519.h'
     ss.header_mappings_dir = 'Sources/WireGuardKitC'
-    ss.module_map          = 'Sources/WireGuardKitC/module.modulemap'
+    ss.preserve_paths      = 'Sources/WireGuardKitC/module.modulemap'
   end
 
   s.subspec 'GoBridge' do |ss|
     ss.source_files        = 'Sources/WireGuardKitGo/dummy.c'
     ss.public_header_files = 'Sources/WireGuardKitGo/wireguard.h'
     ss.header_mappings_dir = 'Sources/WireGuardKitGo'
-    ss.module_map          = 'Sources/WireGuardKitGo/module.modulemap'
     ss.preserve_paths      = [
+      'Sources/WireGuardKitGo/module.modulemap',
+      'Sources/WireGuardKitGo/wireguard.h',
       'Sources/WireGuardKitGo/api-apple.go',
       'Sources/WireGuardKitGo/go.mod',
       'Sources/WireGuardKitGo/go.sum',
