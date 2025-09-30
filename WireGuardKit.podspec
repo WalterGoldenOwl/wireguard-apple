@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.default_subspec = 'Core'
 
   s.subspec 'CBridge' do |ss|
-    ss.source_files        = 'Sources/WireGuardKitC/**/*.{c}'
+    ss.source_files        = 'Sources/WireGuardKitC/**/*.{c,h}'
     ss.public_header_files = 'Sources/WireGuardKitC/WireGuardKitC.h',
                              'Sources/WireGuardKitC/key.h',
                              'Sources/WireGuardKitC/x25519.h'
@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'GoBridge' do |ss|
-    ss.source_files        = 'Sources/WireGuardKitGo/dummy.c'
+    ss.source_files        = 'Sources/WireGuardKitGo/*.{c,h}'
     ss.public_header_files = 'Sources/WireGuardKitGo/wireguard.h'
     ss.header_mappings_dir = 'Sources/WireGuardKitGo'
     ss.preserve_paths      = [
