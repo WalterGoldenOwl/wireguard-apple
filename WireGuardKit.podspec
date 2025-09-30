@@ -25,6 +25,9 @@ Pod::Spec.new do |s|
                              'Sources/WireGuardKitC/x25519.h'
     ss.header_mappings_dir = 'Sources/WireGuardKitC'
     ss.preserve_paths      = 'Sources/WireGuardKitC/module.modulemap'
+    ss.pod_target_xcconfig = {
+      'DEFINES_MODULE' => 'YES'
+    }
   end
 
   s.subspec 'GoBridge' do |ss|
@@ -42,7 +45,8 @@ Pod::Spec.new do |s|
     ]
     ss.pod_target_xcconfig = {
       'LIBRARY_SEARCH_PATHS' => '$(inherited) $(CONFIGURATION_BUILD_DIR)',
-      'OTHER_LDFLAGS' => '$(inherited) -lwg-go'
+      'OTHER_LDFLAGS' => '$(inherited) -lwg-go',
+      'DEFINES_MODULE' => 'YES'
     }
     ss.script_phase = {
       :name => 'Build wireguard-go bridge',
@@ -89,7 +93,8 @@ SCRIPT
     ss.dependency 'WireGuardKit/GoBridge'
     ss.source_files = 'Sources/WireGuardKit/**/*.swift'
     ss.pod_target_xcconfig = {
-      'SWIFT_ACTIVE_COMPILATION_CONDITIONS' => '$(inherited) WIREGUARDKIT_COCOAPODS'
+      'SWIFT_ACTIVE_COMPILATION_CONDITIONS' => '$(inherited) WIREGUARDKIT_COCOAPODS',
+      'DEFINES_MODULE' => 'YES'
     }
   end
 
