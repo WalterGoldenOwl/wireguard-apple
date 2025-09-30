@@ -16,6 +16,7 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '12.0'
 
   s.requires_arc = true
+  s.module_map    = 'WireGuardKit.modulemap'
   s.default_subspec = 'Core'
 
   s.subspec 'CBridge' do |ss|
