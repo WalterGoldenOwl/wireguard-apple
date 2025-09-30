@@ -3,6 +3,7 @@
 
 #include <stdbool.h>
 #include <stdint.h>
+#include <sys/types.h>
 #include "key.h"
 #include "x25519.h"
 
