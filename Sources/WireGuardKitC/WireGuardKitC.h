@@ -1,7 +1,8 @@
 // SPDX-License-Identifier: MIT
 // Copyright © 2018-2023 WireGuard LLC. All Rights Reserved.
 
-#import <Foundation/Foundation.h>
+#include <stdbool.h>
+#include <stdint.h>
 #include "key.h"
 #include "x25519.h"
 
